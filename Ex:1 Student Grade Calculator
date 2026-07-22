@@ -1,0 +1,39 @@
+# Student Grade Calculator
+
+subjects = ["Subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5"]
+marks = []
+
+print("Enter marks for 5 subjects (out of 100 each):")
+for subject in subjects:
+    while True:
+        try:
+            m = float(input(f"{subject}: "))
+            if 0 <= m <= 100:
+                marks.append(m)
+                break
+            else:
+                print("Please enter a value between 0 and 100.")
+        except ValueError:
+            print("Invalid input. Enter a number.")
+
+total = sum(marks)
+average = total / len(marks)
+
+# Assign grade based on average
+if average >= 90:
+    grade = "A"
+elif average >= 80:
+    grade = "B"
+elif average >= 70:
+    grade = "C"
+elif average >= 60:
+    grade = "D"
+elif average >= 40:
+    grade = "E"
+else:
+    grade = "F"
+
+print("\n----- Result -----")
+print(f"Total Marks : {total}")
+print(f"Average     : {average:.2f}")
+print(f"Grade       : {grade}")
