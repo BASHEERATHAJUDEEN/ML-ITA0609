@@ -1,0 +1,43 @@
+units = float(input("Enter total units consumed: "))
+
+# Slab-wise tariff rates (example rates, per unit)
+# 0-100 units    : Rs. 3.50/unit
+# 101-200 units  : Rs. 4.50/unit
+# 201-300 units  : Rs. 6.00/unit
+# Above 300 units: Rs. 7.50/unit
+
+bill = 0
+remaining = units
+
+if remaining > 0:
+    slab1 = min(remaining, 100)
+    bill += slab1 * 3.50
+    remaining -= slab1
+
+if remaining > 0:
+    slab2 = min(remaining, 100)   # units 101-200
+    bill += slab2 * 4.50
+    remaining -= slab2
+
+if remaining > 0:
+    slab3 = min(remaining, 100)   # units 201-300
+    bill += slab3 * 6.00
+    remaining -= slab3
+
+if remaining > 0:                 # units above 300
+    bill += remaining * 7.50
+    remaining = 0
+
+# Fixed charges and taxes
+fixed_charge = 50.0
+tax_rate = 0.05        # 5% tax on the energy bill
+
+tax = bill * tax_rate
+total_bill = bill + fixed_charge + tax
+
+print("\n----- Electricity Bill -----")
+print(f"Units Consumed   : {units}")
+print(f"Energy Charges   : Rs. {bill:.2f}")
+print(f"Fixed Charges    : Rs. {fixed_charge:.2f}")
+print(f"Tax (5%)         : Rs. {tax:.2f}")
+print(f"Total Bill       : Rs. {total_bill:.2f}")
