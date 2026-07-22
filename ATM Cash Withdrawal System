@@ -1,0 +1,31 @@
+# Predefined account details (in a real system, this would come from a database)
+correct_pin = 1234
+account_balance = 5000.0
+
+# PIN verification
+entered_pin = int(input("Enter your 4-digit PIN: "))
+
+if entered_pin != correct_pin:
+    print("Incorrect PIN. Access denied.")
+else:
+    print("PIN verified successfully.\n")
+
+    # Show balance check option
+    check_balance = input("Would you like to check your balance? (yes/no): ").lower()
+    if check_balance == "yes":
+        print(f"Your current balance is: Rs. {account_balance:.2f}\n")
+
+    # Withdrawal
+    withdraw_amount = float(input("Enter amount to withdraw: "))
+
+    if withdraw_amount <= 0:
+        print("Invalid amount. Please enter a positive value.")
+    elif withdraw_amount % 100 != 0:
+        print("Please enter an amount in multiples of 100.")
+    elif withdraw_amount > account_balance:
+        print("Insufficient balance. Transaction declined.")
+    else:
+        account_balance -= withdraw_amount
+        print("\n----- Transaction Successful -----")
+        print(f"Amount Withdrawn : Rs. {withdraw_amount:.2f}")
+        print(f"Remaining Balance: Rs. {account_balance:.2f}")
