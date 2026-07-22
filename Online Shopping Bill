@@ -1,0 +1,29 @@
+# Shopping Bill Calculator (Discount + GST)
+
+purchase_amount = float(input("Enter total purchase amount: "))
+
+# Discount slabs based on purchase amount
+if purchase_amount >= 10000:
+    discount_rate = 0.15       # 15% discount
+elif purchase_amount >= 5000:
+    discount_rate = 0.10       # 10% discount
+elif purchase_amount >= 2000:
+    discount_rate = 0.05       # 5% discount
+else:
+    discount_rate = 0.0        # No discount
+
+discount_amount = purchase_amount * discount_rate
+amount_after_discount = purchase_amount - discount_amount
+
+# GST applied on discounted amount
+gst_rate = 0.18                # 18% GST
+gst_amount = amount_after_discount * gst_rate
+
+total_bill = amount_after_discount + gst_amount
+
+print("\n----- Bill Summary -----")
+print(f"Purchase Amount     : Rs. {purchase_amount:.2f}")
+print(f"Discount ({discount_rate*100:.0f}%)      : Rs. {discount_amount:.2f}")
+print(f"Amount After Discount: Rs. {amount_after_discount:.2f}")
+print(f"GST ({gst_rate*100:.0f}%)            : Rs. {gst_amount:.2f}")
+print(f"Total Bill          : Rs. {total_bill:.2f}")
