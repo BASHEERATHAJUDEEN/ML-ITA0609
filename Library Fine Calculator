@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main()
+{
+    int days;
+    float fine;
+
+    printf("Enter the number of overdue days: ");
+    scanf("%d", &days);
+
+    if (days <= 0)
+    {
+        fine = 0;
+    }
+    else if (days <= 5)
+    {
+        fine = days * 2;
+    }
+    else if (days <= 10)
+    {
+        fine = (5 * 2) + (days - 5) * 5;
+    }
+    else
+    {
+        fine = (5 * 2) + (5 * 5) + (days - 10) * 10;
+    }
+
+    printf("\n===== Library Fine Details =====\n");
+    printf("Overdue Days : %d\n", days);
+    printf("Library Fine : ₹%.2f\n", fine);
+
+    return 0;
+}
