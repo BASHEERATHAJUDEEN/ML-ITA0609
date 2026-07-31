@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main()
+{
+    float temp[7];
+    float sum = 0, avg, max, min;
+    int i;
+
+    // Input temperatures
+    printf("Enter temperatures for 7 days:\n");
+    for(i = 0; i < 7; i++)
+    {
+        printf("Day %d: ", i + 1);
+        scanf("%f", &temp[i]);
+    }
+
+    // Initialize max and min
+    max = min = temp[0];
+
+    // Calculate sum, max, and min
+    for(i = 0; i < 7; i++)
+    {
+        sum += temp[i];
+
+        if(temp[i] > max)
+            max = temp[i];
+
+        if(temp[i] < min)
+            min = temp[i];
+    }
+
+    avg = sum / 7;
+
+    // Display results
+    printf("\n===== Temperature Report =====\n");
+    printf("Maximum Temperature : %.2f°C\n", max);
+    printf("Minimum Temperature : %.2f°C\n", min);
+    printf("Average Temperature : %.2f°C\n", avg);
+
+    return 0;
+}
