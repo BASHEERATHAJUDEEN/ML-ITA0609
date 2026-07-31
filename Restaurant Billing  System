@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, i;
+    char item[20];
+    float price, qty, total = 0;
+    float gst, serviceCharge, finalBill;
+
+    printf("===== CUSTOMER BILL =====\n");
+    printf("Enter number of food items: ");
+    scanf("%d", &n);
+
+    for(i = 1; i <= n; i++)
+    {
+        printf("\nItem %d Name: ", i);
+        scanf("%s", item);
+
+        printf("Price: ");
+        scanf("%f", &price);
+
+        printf("Quantity: ");
+        scanf("%f", &qty);
+
+        total += price * qty;
+    }
+
+    gst = total * 0.05;            // 5% GST
+    serviceCharge = total * 0.10;  // 10% Service Charge
+    finalBill = total + gst + serviceCharge;
+
+    printf("\n========== BILL ==========\n");
+    printf("Food Total       : ₹%.2f\n", total);
+    printf("GST (5%%)         : ₹%.2f\n", gst);
+    printf("Service Charge   : ₹%.2f\n", serviceCharge);
+    printf("--------------------------\n");
+    printf("Final Amount     : ₹%.2f\n", finalBill);
+    printf("==========================\n");
+
+    return 0;
+}
