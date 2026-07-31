@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main()
+{
+    int seats, category;
+    float price, totalCost, discount = 0, finalCost;
+
+    printf("Select Seat Category:\n");
+    printf("1. Regular (₹200)\n");
+    printf("2. Premium (₹350)\n");
+    printf("3. VIP (₹500)\n");
+    printf("Enter your choice: ");
+    scanf("%d", &category);
+
+    printf("Enter Number of Seats: ");
+    scanf("%d", &seats);
+
+    switch(category)
+    {
+        case 1:
+            price = 200;
+            break;
+        case 2:
+            price = 350;
+            break;
+        case 3:
+            price = 500;
+            break;
+        default:
+            printf("Invalid Seat Category!\n");
+            return 0;
+    }
+
+    totalCost = seats * price;
+
+    if(seats >= 5)
+        discount = totalCost * 0.10;   // 10% discount
+
+    finalCost = totalCost - discount;
+
+    printf("\n===== Ticket Bill =====\n");
+    printf("Seat Category : %d\n", category);
+    printf("Number of Seats : %d\n", seats);
+    printf("Total Cost : ₹%.2f\n", totalCost);
+    printf("Discount : ₹%.2f\n", discount);
+    printf("Final Amount : ₹%.2f\n", finalCost);
+
+    return 0;
+}
