@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int main()
+{
+    int age, choice;
+    float fare, finalFare, discount = 0;
+
+    printf("Select Travel Class:\n");
+    printf("1. Economy\n");
+    printf("2. Business\n");
+    printf("3. First Class\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    printf("Enter Age: ");
+    scanf("%d", &age);
+
+    // Base Fare
+    switch(choice)
+    {
+        case 1:
+            fare = 500;
+            break;
+        case 2:
+            fare = 1000;
+            break;
+        case 3:
+            fare = 1500;
+            break;
+        default:
+            printf("Invalid Class Selection!\n");
+            return 0;
+    }
+
+    // Concession
+    if(age < 12)
+        discount = fare * 0.50;      // 50% discount
+    else if(age >= 60)
+        discount = fare * 0.30;      // 30% discount
+    else
+        discount = 0;
+
+    finalFare = fare - discount;
+
+    printf("\n===== Ticket Details =====\n");
+    printf("Base Fare      : ₹%.2f\n", fare);
+    printf("Discount       : ₹%.2f\n", discount);
+    printf("Final Fare     : ₹%.2f\n", finalFare);
+
+    return 0;
+}
