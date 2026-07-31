@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main()
+{
+    int totalClasses, attendedClasses;
+    float attendance;
+
+    printf("Enter Total Classes Conducted: ");
+    scanf("%d", &totalClasses);
+
+    printf("Enter Classes Attended: ");
+    scanf("%d", &attendedClasses);
+
+    attendance = (attendedClasses * 100.0) / totalClasses;
+
+    printf("\n===== Attendance Report =====\n");
+    printf("Total Classes      : %d\n", totalClasses);
+    printf("Classes Attended   : %d\n", attendedClasses);
+    printf("Attendance         : %.2f%%\n", attendance);
+
+    if (attendance >= 75.0)
+        printf("Status             : Eligible for Examination\n");
+    else
+        printf("Status             : Not Eligible for Examination\n");
+
+    return 0;
+}
