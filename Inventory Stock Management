@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main()
+{
+    char product[50];
+    int stock, minStock;
+
+    printf("Enter Product Name: ");
+    scanf("%s", product);
+
+    printf("Enter Current Stock: ");
+    scanf("%d", &stock);
+
+    printf("Enter Minimum Stock Threshold: ");
+    scanf("%d", &minStock);
+
+    printf("\n===== Inventory Report =====\n");
+    printf("Product Name   : %s\n", product);
+    printf("Current Stock  : %d\n", stock);
+    printf("Minimum Stock  : %d\n", minStock);
+
+    if(stock < minStock)
+        printf("Status         : LOW STOCK! Reorder Required.\n");
+    else
+        printf("Status         : Stock is Sufficient.\n");
+
+    return 0;
+}
