@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main()
+{
+    int age;
+    float weight, hemoglobin;
+
+    printf("Enter Age: ");
+    scanf("%d", &age);
+
+    printf("Enter Weight (kg): ");
+    scanf("%f", &weight);
+
+    printf("Enter Hemoglobin Level (g/dL): ");
+    scanf("%f", &hemoglobin);
+
+    if(age >= 18 && age <= 65 && weight >= 50 && hemoglobin >= 12.5)
+    {
+        printf("\nEligible for Blood Donation.\n");
+    }
+    else
+    {
+        printf("\nNot Eligible for Blood Donation.\n");
+
+        if(age < 18 || age > 65)
+            printf("- Age should be between 18 and 65 years.\n");
+
+        if(weight < 50)
+            printf("- Weight should be at least 50 kg.\n");
+
+        if(hemoglobin < 12.5)
+            printf("- Hemoglobin level should be at least 12.5 g/dL.\n");
+    }
+
+    return 0;
+}
