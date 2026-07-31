@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    int age;
+    char nationality[20];
+
+    printf("Enter Age: ");
+    scanf("%d", &age);
+
+    printf("Enter Nationality: ");
+    scanf("%s", nationality);
+
+    if(age >= 18 && strcmp(nationality, "Indian") == 0)
+    {
+        printf("\nEligible to Vote.\n");
+    }
+    else
+    {
+        printf("\nNot Eligible to Vote.\n");
+    }
+
+    return 0;
+}
