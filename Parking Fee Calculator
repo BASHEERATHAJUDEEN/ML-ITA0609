@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main()
+{
+    int vehicleType, hours;
+    float rate, totalCharge;
+
+    printf("Select Vehicle Type:\n");
+    printf("1. Bike\n");
+    printf("2. Car\n");
+    printf("3. Bus\n");
+    printf("Enter your choice: ");
+    scanf("%d", &vehicleType);
+
+    printf("Enter Parking Duration (hours): ");
+    scanf("%d", &hours);
+
+    switch(vehicleType)
+    {
+        case 1:
+            rate = 20;
+            break;
+        case 2:
+            rate = 50;
+            break;
+        case 3:
+            rate = 100;
+            break;
+        default:
+            printf("Invalid Vehicle Type!\n");
+            return 0;
+    }
+
+    totalCharge = rate * hours;
+
+    printf("\n===== Parking Bill =====\n");
+    printf("Parking Duration : %d hour(s)\n", hours);
+    printf("Rate per Hour    : ₹%.2f\n", rate);
+    printf("Total Charge     : ₹%.2f\n", totalCharge);
+
+    return 0;
+}
