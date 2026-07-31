@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int main()
+{
+    float rechargeAmount, finalAmount, cashback = 0, discount = 0;
+    int choice;
+
+    printf("Enter Recharge Amount: ₹");
+    scanf("%f", &rechargeAmount);
+
+    printf("\nSelect Offer:\n");
+    printf("1. Promo Discount (10%%)\n");
+    printf("2. Cashback (₹50 for recharge >= ₹500)\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch(choice)
+    {
+        case 1:
+            discount = rechargeAmount * 0.10;
+            finalAmount = rechargeAmount - discount;
+
+            printf("\n===== Recharge Bill =====\n");
+            printf("Recharge Amount : ₹%.2f\n", rechargeAmount);
+            printf("Promo Discount  : ₹%.2f\n", discount);
+            printf("Final Amount    : ₹%.2f\n", finalAmount);
+            break;
+
+        case 2:
+            if(rechargeAmount >= 500)
+                cashback = 50;
+
+            finalAmount = rechargeAmount - cashback;
+
+            printf("\n===== Recharge Bill =====\n");
+            printf("Recharge Amount : ₹%.2f\n", rechargeAmount);
+            printf("Cashback        : ₹%.2f\n", cashback);
+            printf("Final Amount    : ₹%.2f\n", finalAmount);
+            break;
+
+        default:
+            printf("Invalid Choice!\n");
+    }
+
+    return 0;
+}
